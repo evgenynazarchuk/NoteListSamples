@@ -1,7 +1,17 @@
 # Todo List Samples
 
-## Repository pattern
+## HTTP 1.1 & 2.0
 
-## MediatR
+### Web API & Repository
 
-## Actors
+### Web API & MediatR
+
+### Web API & Actors
+
+## gRpc
+
+### gRpc & Repository
+
+### gRpc & Actor
+
+### gRpc & MediatR
