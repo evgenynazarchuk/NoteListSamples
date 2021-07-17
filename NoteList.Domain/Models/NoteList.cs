@@ -10,6 +10,6 @@ namespace NoteList.Domain.Models
     {
         public Guid Id { get; set; }
 
-        public List<Note> Notes { get; set; }
+        public List<NoteItem> NoteItem { get; set; }
     }
 }

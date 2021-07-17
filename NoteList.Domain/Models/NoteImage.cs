@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace NoteList.Domain.Models
 {
-    public class NotePhoto
+    public class NoteImage
     {
         public Guid Id { get; set; }
 
-        public byte[] Photo { get; set; }
+        public byte[] Image { get; set; }
+
+        public Guid NoteItemId { get; set; }
+
+        public NoteItem NoteItem { get; set; }
     }
 }

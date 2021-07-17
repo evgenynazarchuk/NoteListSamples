@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace NoteList.Domain.Models
 {
-    public class Note
+    public class NoteItem
     {
         public Guid Id { get; set; }
 
-        public string Text { get; set; }
+        public string NoteText { get; set; }
 
-        public Guid NotePhotoId { get; set; }
+        public Guid NoteImageId { get; set; }
 
-        public NotePhoto NotePhoto { get; set; }
+        public NoteImage NoteImage { get; set; }
 
         public List<NoteTagLink> TagLinks { get; set; }
 

@@ -8,9 +8,9 @@ namespace NoteList.Domain.Models
 {
     public class NoteTagLink
     {
-        public Guid NoteId { get; set; }
+        public Guid NoteItemId { get; set; }
 
-        public Note Note { get; set; }
+        public NoteItem NoteItem { get; set; }
 
         public Guid TagId { get; set; }
 

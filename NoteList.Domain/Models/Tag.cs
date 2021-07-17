@@ -10,7 +10,7 @@ namespace NoteList.Domain.Models
     {
         public Guid Id { get; set; }
 
-        public string Name { get; set; }
+        public string TagName { get; set; }
 
         public List<NoteTagLink> NoteLinks { get; set; }
     }
