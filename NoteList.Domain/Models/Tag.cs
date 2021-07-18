@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace NoteList.Domain.Models
 {
-    public class Tag
+    public class Tag : Identity
     {
-        public Guid Id { get; set; }
-
         public string TagName { get; set; }
 
         public List<NoteTagLink> NoteLinks { get; set; }
+
+        public List<NoteItem> NoteItems { get; set; }
     }
 }

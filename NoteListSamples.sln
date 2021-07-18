@@ -3,35 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NoteListRepositorySampleApp", "NoteListRepositorySampleApp", "{5B5BD0AF-DE36-4683-AB62-50F8E8C1C2AF}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NoteListMediatRSampleApp", "NoteListMediatRSampleApp", "{3D223304-D8DA-4CF8-B189-0FE2FBFA5277}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NoteListActorSampleApp", "NoteListActorSampleApp", "{6288AB92-F9ED-435C-BE59-880C847039D1}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteListMediatRSampleApp", "NoteListMediatRSampleApp\NoteListMediatRSampleApp.csproj", "{AAFA7A26-16D5-48BF-B5DB-026E8FAB6D35}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteListActorSampleApp", "NoteListActorSampleApp\NoteListActorSampleApp.csproj", "{0A96433F-070B-489E-9C17-BB6917AFC21F}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteListRepositorySampleApp", "NoteListRepositorySampleApp\NoteListRepositorySampleApp.csproj", "{DDE6FF92-7F36-46D7-B3D8-A15569E9BAA0}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NoteList.Domain", "NoteList.Domain", "{9E95200A-D2C8-4B44-AB09-5CAA91ECB17B}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteList.Domain", "NoteList.Domain\NoteList.Domain.csproj", "{0302D4F0-8AC8-448F-ACB1-7305C8077B0C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NoteListBenchmark", "NoteListBenchmark", "{B9C07B0A-443F-474C-A98B-8E88EE0291A0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleApp", "SampleApp", "{F4F064CC-CD50-4734-8183-302B4F47D15B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteListBenchmark\NoteListRepositoryBenchmark", "NoteListBenchmark\NoteListRepositoryBenchmark\NoteListRepositoryBenchmark.csproj", "{A2AB14A3-3B37-4AB4-A015-178533E68025}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteListBenchmark\NoteListMediatRBenchmark", "NoteListBenchmark\NoteListMediatRBenchmark\NoteListMediatRBenchmark.csproj", "{39EF551B-80B5-4B9E-95AB-5E5F142F4E5E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteListBenchmark\NoteListActorBenchmark", "NoteListBenchmark\NoteListActorBenchmark\NoteListActorBenchmark.csproj", "{274AE654-465C-4C4B-96EA-FCA61C10F281}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NoteListGrpcSampleApp", "NoteListGrpcSampleApp", "{FEE6ECD0-D5E0-4C22-B26F-CC261097D484}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteListGrpcSampleApp", "NoteListGrpcSampleApp\NoteListGrpcSampleApp.csproj", "{CCA65ABC-D67E-4257-954F-F501B01DE27E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteListBenchmark\NoteListGrpcBenchmark", "NoteListBenchmark\NoteListGrpcBenchmark\NoteListGrpcBenchmark.csproj", "{E074E7DB-E3DE-4C22-8E9D-28EBC4D4497C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteListOnRepository", "NoteListOnRepository\NoteListOnRepository.csproj", "{1F0444FA-0071-4964-949F-FA5CDBE524D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,56 +15,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AAFA7A26-16D5-48BF-B5DB-026E8FAB6D35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AAFA7A26-16D5-48BF-B5DB-026E8FAB6D35}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AAFA7A26-16D5-48BF-B5DB-026E8FAB6D35}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AAFA7A26-16D5-48BF-B5DB-026E8FAB6D35}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0A96433F-070B-489E-9C17-BB6917AFC21F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0A96433F-070B-489E-9C17-BB6917AFC21F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0A96433F-070B-489E-9C17-BB6917AFC21F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0A96433F-070B-489E-9C17-BB6917AFC21F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DDE6FF92-7F36-46D7-B3D8-A15569E9BAA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DDE6FF92-7F36-46D7-B3D8-A15569E9BAA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DDE6FF92-7F36-46D7-B3D8-A15569E9BAA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DDE6FF92-7F36-46D7-B3D8-A15569E9BAA0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0302D4F0-8AC8-448F-ACB1-7305C8077B0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0302D4F0-8AC8-448F-ACB1-7305C8077B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0302D4F0-8AC8-448F-ACB1-7305C8077B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0302D4F0-8AC8-448F-ACB1-7305C8077B0C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A2AB14A3-3B37-4AB4-A015-178533E68025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2AB14A3-3B37-4AB4-A015-178533E68025}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2AB14A3-3B37-4AB4-A015-178533E68025}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2AB14A3-3B37-4AB4-A015-178533E68025}.Release|Any CPU.Build.0 = Release|Any CPU
-		{39EF551B-80B5-4B9E-95AB-5E5F142F4E5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39EF551B-80B5-4B9E-95AB-5E5F142F4E5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39EF551B-80B5-4B9E-95AB-5E5F142F4E5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39EF551B-80B5-4B9E-95AB-5E5F142F4E5E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{274AE654-465C-4C4B-96EA-FCA61C10F281}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{274AE654-465C-4C4B-96EA-FCA61C10F281}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{274AE654-465C-4C4B-96EA-FCA61C10F281}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{274AE654-465C-4C4B-96EA-FCA61C10F281}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CCA65ABC-D67E-4257-954F-F501B01DE27E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CCA65ABC-D67E-4257-954F-F501B01DE27E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CCA65ABC-D67E-4257-954F-F501B01DE27E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CCA65ABC-D67E-4257-954F-F501B01DE27E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E074E7DB-E3DE-4C22-8E9D-28EBC4D4497C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E074E7DB-E3DE-4C22-8E9D-28EBC4D4497C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E074E7DB-E3DE-4C22-8E9D-28EBC4D4497C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E074E7DB-E3DE-4C22-8E9D-28EBC4D4497C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F0444FA-0071-4964-949F-FA5CDBE524D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F0444FA-0071-4964-949F-FA5CDBE524D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F0444FA-0071-4964-949F-FA5CDBE524D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F0444FA-0071-4964-949F-FA5CDBE524D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{AAFA7A26-16D5-48BF-B5DB-026E8FAB6D35} = {3D223304-D8DA-4CF8-B189-0FE2FBFA5277}
-		{0A96433F-070B-489E-9C17-BB6917AFC21F} = {6288AB92-F9ED-435C-BE59-880C847039D1}
-		{DDE6FF92-7F36-46D7-B3D8-A15569E9BAA0} = {5B5BD0AF-DE36-4683-AB62-50F8E8C1C2AF}
-		{0302D4F0-8AC8-448F-ACB1-7305C8077B0C} = {9E95200A-D2C8-4B44-AB09-5CAA91ECB17B}
-		{A2AB14A3-3B37-4AB4-A015-178533E68025} = {B9C07B0A-443F-474C-A98B-8E88EE0291A0}
-		{39EF551B-80B5-4B9E-95AB-5E5F142F4E5E} = {B9C07B0A-443F-474C-A98B-8E88EE0291A0}
-		{274AE654-465C-4C4B-96EA-FCA61C10F281} = {B9C07B0A-443F-474C-A98B-8E88EE0291A0}
-		{CCA65ABC-D67E-4257-954F-F501B01DE27E} = {FEE6ECD0-D5E0-4C22-B26F-CC261097D484}
-		{E074E7DB-E3DE-4C22-8E9D-28EBC4D4497C} = {B9C07B0A-443F-474C-A98B-8E88EE0291A0}
+		{1F0444FA-0071-4964-949F-FA5CDBE524D7} = {F4F064CC-CD50-4734-8183-302B4F47D15B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CA9AEC93-24BA-4497-84D9-F6D54A33A3D0}
