@@ -29,7 +29,6 @@ namespace NoteListOnRepository
             services.AddTransient<RepositoryAsync<Tag>>();
             services.AddTransient<NoteTagLinkRepository>();
 
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
