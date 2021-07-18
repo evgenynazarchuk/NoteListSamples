@@ -11,8 +11,4 @@ namespace NoteList.Domain.Queries
     {
         public string Name { get; set; }
     }
-
-
-
-
 }
