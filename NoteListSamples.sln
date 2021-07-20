@@ -5,9 +5,7 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteList.Domain", "NoteList.Domain\NoteList.Domain.csproj", "{0302D4F0-8AC8-448F-ACB1-7305C8077B0C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleApp", "SampleApp", "{F4F064CC-CD50-4734-8183-302B4F47D15B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteListOnRepository", "NoteListOnRepository\NoteListOnRepository.csproj", "{1F0444FA-0071-4964-949F-FA5CDBE524D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteListOnRepository", "NoteListOnRepository\NoteListOnRepository.csproj", "{1F0444FA-0071-4964-949F-FA5CDBE524D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,9 +24,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{1F0444FA-0071-4964-949F-FA5CDBE524D7} = {F4F064CC-CD50-4734-8183-302B4F47D15B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CA9AEC93-24BA-4497-84D9-F6D54A33A3D0}
