@@ -1,49 +1,76 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using NoteList.Domain.Models;
-using NoteListOnRepository.Services;
+using NoteListOnRepository.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace NoteListOnRepository.Controllers
 {
-    public class RestController<Entity> : ControllerBase
+    public class RestController<Entity, EntityCommand, EntityQuery> : ControllerBase
         where Entity : Identity, new()
+        where EntityCommand : Identity, new()
+        where EntityQuery : Identity, new()
     {
-        protected readonly RepositoryAsync<Entity> Repository;
+        protected readonly IRepositoryAsync<Entity> Repository;
+        protected readonly IMapper Mapper;
 
-        public RestController(RepositoryAsync<Entity> repository)
+        public RestController(IRepositoryAsync<Entity> repository, IMapper mapper)
         {
             Repository = repository;
+            Mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<List<Entity>> Get()
+        [Consumes("application/json")]
+        [Produces("application/json")]
+        public async Task<List<EntityQuery>> Get()
         {
-            return await Repository.GetAsync();
+            var entities = await Repository.GetAsync();
+            var entitiesQuery = Mapper.Map<List<Entity>, List<EntityQuery>>(entities);
+            return entitiesQuery;
         }
 
         [HttpGet("{id}")]
-        public async Task<Entity> Get(int id)
+        [Consumes("application/json")]
+        [Produces("application/json")]
+        public async Task<EntityQuery> Get(int id)
         {
-            return await Repository.GetAsync(id);
+            var entity = await Repository.GetAsync(id);
+            var entityQuery = Mapper.Map<Entity, EntityQuery>(entity);
+            return entityQuery;
         }
 
         [HttpPost]
-        public async Task<Entity> Post(Entity entity)
+        [Consumes("application/json")]
+        [Produces("application/json")]
+        public async Task<EntityQuery> Post(EntityCommand entityCommand)
         {
-            return await Repository.CreateAsync(entity);
+            var entity = Mapper.Map<EntityCommand, Entity>(entityCommand);
+            var createdEntity = await Repository.CreateAsync(entity);
+            var entityQuery = Mapper.Map<Entity, EntityQuery>(createdEntity);
+            return entityQuery;
         }
 
         [HttpPut]
-        public async Task<Entity> Put(Entity entity)
+        [Consumes("application/json")]
+        [Produces("application/json")]
+        public async Task<EntityQuery> Put(EntityCommand entityCommand)
         {
-            return await Repository.PutAsync(entity);
+            var entity = Mapper.Map<EntityCommand, Entity>(entityCommand);
+            var createdEntity = await Repository.PutAsync(entity);
+            var entityQuery = Mapper.Map<Entity, EntityQuery>(createdEntity);
+            return entityQuery;
         }
 
         [HttpDelete]
-        public async Task<Entity> Delete(int id)
+        [Consumes("application/json")]
+        [Produces("application/json")]
+        public async Task<EntityQuery> Delete(int id)
         {
-            return await Repository.DeleteAsync(id);
+            var entity = await Repository.DeleteAsync(id);
+            var entityQuery = Mapper.Map<Entity, EntityQuery>(entity);
+            return entityQuery;
         }
     }
 }

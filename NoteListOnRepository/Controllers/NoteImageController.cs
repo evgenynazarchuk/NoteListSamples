@@ -1,14 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using NoteList.Domain.Commands;
 using NoteList.Domain.Models;
-using NoteListOnRepository.Services;
+using NoteList.Domain.Queries;
+using NoteListOnRepository.Interfaces;
 
 namespace NoteListOnRepository.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class NoteImageController : RestController<NoteImage>
+    public class NoteImageController : RestController<NoteImage, NoteImageCommand, NoteListQuery>
     {
-        public NoteImageController(RepositoryAsync<NoteImage> repository)
-            : base(repository) { }
+        public NoteImageController(IRepositoryAsync<NoteImage> repository, IMapper mapper)
+            : base(repository, mapper) { }
     }
 }
