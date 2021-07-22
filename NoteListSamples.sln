@@ -5,13 +5,13 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteList.Domain", "NoteList.Domain\NoteList.Domain.csproj", "{0302D4F0-8AC8-448F-ACB1-7305C8077B0C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteListOnRepository", "NoteListOnRepository\NoteListOnRepository.csproj", "{1F0444FA-0071-4964-949F-FA5CDBE524D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteList.Repository", "NoteList.Repository\NoteList.Repository.csproj", "{1F0444FA-0071-4964-949F-FA5CDBE524D7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1F125B41-C890-49F3-8340-34DAB4AAD439}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Facades", "Facades", "{F9AD1FFE-EB97-47CB-BA0D-8307EB0E13C1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FacadeTests", "FacadeTests", "{F9AD1FFE-EB97-47CB-BA0D-8307EB0E13C1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteListOnRepository.FacadeTests", "NoteListOnRepository.FacadeTests\NoteListOnRepository.FacadeTests.csproj", "{F0AC61EA-02EB-4277-82C3-BF62DBB4773A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteList.Repository.FacadeTests", "NoteList.Repository.FacadeTests\NoteList.Repository.FacadeTests.csproj", "{F0AC61EA-02EB-4277-82C3-BF62DBB4773A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClientExtension", "HttpClientExtension\HttpClientExtension.csproj", "{48B94A1E-EEB4-4C29-B888-FD43BF2AD515}"
 EndProject

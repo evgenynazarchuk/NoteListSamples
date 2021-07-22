@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace HttpClientExtension
+﻿namespace HttpClientExtension
 {
     public class Class1
     {
