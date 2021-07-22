@@ -28,7 +28,7 @@ namespace NoteList.Repository
 
             services.AddTransient<IRepositoryAsync<NoteItem>, RepositoryAsync<NoteItem>>();
             services.AddTransient<IRepositoryAsync<NoteImage>, RepositoryAsync<NoteImage>>();
-            services.AddTransient<IRepositoryAsync<NoteList.Domain.Models.NoteList>, RepositoryAsync<NoteList.Domain.Models.NoteList>>();
+            services.AddTransient<IRepositoryAsync<Domain.Models.NoteList>, RepositoryAsync<Domain.Models.NoteList>>();
             services.AddTransient<IRepositoryAsync<Tag>, RepositoryAsync<Tag>>();
             services.AddTransient<NoteTagLinkRepository>();
 

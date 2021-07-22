@@ -9,7 +9,7 @@ namespace NoteList.Repository
 
         public DbSet<NoteItem> NoteItems { get; set; }
 
-        public DbSet<NoteList.Domain.Models.NoteList> NoteLists { get; set; }
+        public DbSet<Domain.Models.NoteList> NoteLists { get; set; }
 
         public DbSet<NoteTagLink> NoteTagLinks { get; set; }
 
@@ -30,7 +30,7 @@ namespace NoteList.Repository
                 .HasForeignKey<NoteImage>(n => n.NoteItemId);
 
             modelBuilder
-                .Entity<NoteList.Domain.Models.NoteList>()
+                .Entity<Domain.Models.NoteList>()
                 .HasMany(l => l.NoteItem)
                 .WithOne(i => i.NoteList)
                 .HasForeignKey(i => i.NoteListId);

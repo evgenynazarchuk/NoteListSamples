@@ -8,9 +8,9 @@ namespace NoteList.Repository.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class NoteListController : RestController<NoteList.Domain.Models.NoteList, NoteListCommand, NoteListQuery>
+    public class NoteListController : RestController<Domain.Models.NoteList, NoteListCommand, NoteListQuery>
     {
-        public NoteListController(IRepositoryAsync<NoteList.Domain.Models.NoteList> repository, IMapper mapper)
+        public NoteListController(IRepositoryAsync<Domain.Models.NoteList> repository, IMapper mapper)
             : base(repository, mapper) { }
     }
 }

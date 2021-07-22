@@ -15,8 +15,8 @@ namespace NoteList.Domain.Configuration
             CreateMap<NoteItemCommand, NoteItem>();
             CreateMap<NoteItem, NoteItemQuery>();
 
-            CreateMap<NoteListCommand, NoteList.Domain.Models.NoteList>();
-            CreateMap<NoteList.Domain.Models.NoteList, NoteListQuery>();
+            CreateMap<NoteListCommand, Domain.Models.NoteList>();
+            CreateMap<Domain.Models.NoteList, NoteListQuery>();
 
             CreateMap<TagCommand, Tag>();
             CreateMap<Tag, TagQuery>();
