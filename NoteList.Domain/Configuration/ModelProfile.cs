@@ -20,6 +20,9 @@ namespace NoteList.Domain.Configuration
 
             CreateMap<TagCommand, Tag>();
             CreateMap<Tag, TagQuery>();
+
+            CreateMap<NoteTagLinkCommand, NoteTagLink>();
+            CreateMap<NoteTagLink, NoteTagLinkQuery>();
         }
     }
 }

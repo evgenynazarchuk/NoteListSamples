@@ -1,6 +1,24 @@
-﻿namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
+﻿using System;
+using System.Net;
+using System.Net.Http;
+using NoteList.Domain.Commands;
+using NoteList.Domain.Queries;
+using NoteList.Domain.Models;
+using System.Text.Json;
+
+namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
 {
-    public partial class FacadeHelper
+    public class TagFacadeHelper<EntityCommand, EntityQuery> 
+        : FacadeHelper<EntityCommand, EntityQuery>
+        where EntityCommand : Identity
+        where EntityQuery : Identity
     {
+        public TagFacadeHelper(
+            HttpClient httpClient, 
+            string facadePath,
+            JsonSerializerOptions jsonSerializerOptions
+            )
+            : base(httpClient, facadePath, jsonSerializerOptions) 
+        { }
     }
 }

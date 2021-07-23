@@ -1,6 +1,50 @@
-﻿namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
+﻿using System;
+using System.Net;
+using System.Net.Http;
+using NoteList.Domain.Commands;
+using NoteList.Domain.Queries;
+using NoteList.Domain.Models;
+using System.Text.Json;
+using System.Threading.Tasks;
+using System.Text;
+
+namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
 {
-    public partial class FacadeHelper
+    public sealed class NoteTagLinkFacadeHelper
     {
+        private readonly JsonSerializerOptions JsonSerializerOptions;
+        private readonly HttpClient HttpClient;
+        private readonly string FacadePath;
+
+        public NoteTagLinkFacadeHelper(
+            HttpClient httpClient,
+            string facadePath,
+            JsonSerializerOptions jsonSerializerOptions
+            ) 
+        {
+            HttpClient = httpClient;
+            FacadePath = facadePath;
+            JsonSerializerOptions = jsonSerializerOptions;
+        }
+
+        public async Task<NoteTagLinkQuery> CreateLink(NoteTagLinkCommand noteTagLinkCommand)
+        {
+            string requestContent = JsonSerializer.Serialize(noteTagLinkCommand, JsonSerializerOptions);
+            HttpResponseMessage httpResponseMessage = await HttpClient.PostAsync(FacadePath + "/CreateLink", new StringContent(requestContent, Encoding.UTF8, "application/json"));
+            string responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
+            NoteTagLinkQuery responseObject = JsonSerializer.Deserialize<NoteTagLinkQuery>(responseContentString, JsonSerializerOptions);
+
+            return responseObject;
+        }
+
+        public async Task<NoteTagLinkQuery> RemoveLink(NoteTagLinkCommand noteTagLinkCommand)
+        {
+            string requestContent = JsonSerializer.Serialize(noteTagLinkCommand, JsonSerializerOptions);
+            HttpResponseMessage httpResponseMessage = await HttpClient.PostAsync(FacadePath + "/RemoveLink", new StringContent(requestContent, Encoding.UTF8, "application/json"));
+            string responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
+            NoteTagLinkQuery responseObject = JsonSerializer.Deserialize<NoteTagLinkQuery>(responseContentString, JsonSerializerOptions);
+
+            return responseObject;
+        }
     }
 }

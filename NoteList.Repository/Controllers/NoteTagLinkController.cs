@@ -3,6 +3,9 @@ using NoteList.Domain.Models;
 using NoteList.Repository.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using NoteList.Domain.Commands;
+using NoteList.Domain.Queries;
+using AutoMapper;
 
 namespace NoteList.Repository.Controllers
 {
@@ -12,39 +15,30 @@ namespace NoteList.Repository.Controllers
     {
         protected readonly NoteTagLinkRepository Repository;
 
-        public NoteTagLinkController(NoteTagLinkRepository repository)
+        protected readonly IMapper Mapper;
+
+        public NoteTagLinkController(NoteTagLinkRepository repository, IMapper mapper)
         {
             Repository = repository;
+            Mapper = mapper;
         }
 
         [HttpPost]
-        public async Task CreateLink(NoteTagLink link)
+        public async Task<NoteTagLinkQuery> CreateLink(NoteTagLinkCommand link)
         {
-            await Repository.CreateLinkAsync(link);
+            var entity = Mapper.Map<NoteTagLinkCommand, NoteTagLink>(link);
+            var createdEntity = await Repository.CreateLinkAsync(entity);
+            var entityQuery = Mapper.Map<NoteTagLink, NoteTagLinkQuery>(createdEntity);
+            return entityQuery;
         }
 
-        [HttpDelete]
-        public async Task RemoveLink(NoteTagLink link)
+        [HttpPost]
+        public async Task<NoteTagLinkQuery> RemoveLink(NoteTagLinkCommand link)
         {
-            await Repository.RemoveLinkAsync(link);
-        }
-
-        [HttpGet]
-        public async Task<List<NoteTagLink>> GetLinks()
-        {
-            return await Repository.GetLinksAsync();
-        }
-
-        [HttpGet]
-        public async Task<List<NoteItem>> GetNotesByTag(int tagId)
-        {
-            return await Repository.GetNotesByTagAsync(tagId);
-        }
-
-        [HttpGet]
-        public async Task<List<Tag>> GetTagsByNote(int noteId)
-        {
-            return await Repository.GetTagsByNoteAsync(noteId);
+            var entity = Mapper.Map<NoteTagLinkCommand, NoteTagLink>(link);
+            var createdEntity = await Repository.RemoveLinkAsync(entity);
+            var entityQuery = Mapper.Map<NoteTagLink, NoteTagLinkQuery>(createdEntity);
+            return entityQuery;
         }
     }
 }

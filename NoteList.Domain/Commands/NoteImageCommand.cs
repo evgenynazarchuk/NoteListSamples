@@ -4,7 +4,7 @@ namespace NoteList.Domain.Commands
 {
     public class NoteImageCommand : Identity
     {
-        public byte[] ImageData { get; set; }
+        public string ImageData { get; set; }
 
         public int NoteItemId { get; set; }
     }

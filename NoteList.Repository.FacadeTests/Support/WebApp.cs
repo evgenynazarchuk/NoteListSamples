@@ -3,13 +3,43 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
+using NoteList.Repository.FacadeTests.Support.Helper.Facade;
+using NoteList.Domain.Commands;
+using NoteList.Domain.Queries;
+using NoteList.Domain.Models;
+using System.Text.Json;
+using System.Net.Http;
 
 namespace NoteList.Repository.FacadeTests.Support
 {
     public class WebApp : WebApplicationFactory<Startup>
     {
+        public NoteImageFacadeHelper<NoteImageCommand, NoteImageQuery> ImageFacade { get; set; }
+
+        public NoteItemFacadeHelper<NoteItemCommand, NoteItemQuery> ItemFacade { get; set; }
+
+        public NoteListFacadeHelper<NoteListCommand, NoteListQuery> ListFacade { get; set; }
+
+        public TagFacadeHelper<TagCommand, TagQuery> TagFacade { get; set; }
+
+        public NoteTagLinkFacadeHelper NoteTagLink { get; set; }
+
+        protected readonly JsonSerializerOptions JsonSerializerOptions = new()
+        {
+            PropertyNameCaseInsensitive = true
+        };
+
+        protected HttpClient Client { get; set; }
+
         public WebApp()
         {
+            Client = CreateClient();
+
+            ImageFacade = new(Client, "/NoteImage", JsonSerializerOptions);
+            ItemFacade = new(Client, "/NoteItem", JsonSerializerOptions);
+            ListFacade = new(Client, "/NoteList", JsonSerializerOptions);
+            TagFacade = new(Client, "/Tag", JsonSerializerOptions);
+            NoteTagLink = new(Client, "/NoteTagLink", JsonSerializerOptions);
         }
 
         protected override void ConfigureWebHost(IWebHostBuilder builder)

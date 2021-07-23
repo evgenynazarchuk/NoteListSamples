@@ -4,7 +4,7 @@ namespace NoteList.Domain.Models
 {
     public class Tag : Identity
     {
-        public string TagName { get; set; }
+        public string Name { get; set; }
 
         public List<NoteTagLink> NoteLinks { get; set; }
 

@@ -3,6 +3,8 @@ using NoteList.Domain.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using NoteList.Domain.Commands;
+using NoteList.Domain.Queries;
 
 namespace NoteList.Repository.Services
 {
@@ -15,32 +17,6 @@ namespace NoteList.Repository.Services
         {
             Data = data;
             Entities = Data.Set<NoteTagLink>();
-        }
-
-        public async Task<List<NoteItem>> GetNotesByTagAsync(int id)
-        {
-            var notes = await Entities
-                .AsNoTracking()
-                .Where(e => e.TagId == id)
-                .Select(e => e.NoteItem)
-                .ToListAsync();
-            return notes;
-        }
-
-        public async Task<List<Tag>> GetTagsByNoteAsync(int id)
-        {
-            var tags = await Entities
-                .AsNoTracking()
-                .Where(e => e.NoteItemId == id)
-                .Select(e => e.Tag)
-                .ToListAsync();
-            return tags;
-        }
-
-        public async Task<List<NoteTagLink>> GetLinksAsync()
-        {
-            var links = await Entities.AsNoTracking().ToListAsync();
-            return links;
         }
 
         public async Task<NoteTagLink> CreateLinkAsync(NoteTagLink link)
