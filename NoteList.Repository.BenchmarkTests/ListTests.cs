@@ -8,7 +8,7 @@ namespace NoteList.Repository.BenchmarkTests
     [HtmlExporter]
     [MemoryDiagnoser]
     [MinColumn, MaxColumn, MeanColumn, MedianColumn]
-    public class CreateTagTests
+    public class ListTests
     {
         public WebApp WebApp;
 
@@ -19,9 +19,9 @@ namespace NoteList.Repository.BenchmarkTests
         }
 
         [Benchmark]
-        public async Task CreateTag()
+        public async Task CreateList()
         {
-            await WebApp.TagFacade.Post(new TagCommand
+            await WebApp.ListFacade.Post(new NoteListCommand
             {
                 Name = "Test Name"
             });

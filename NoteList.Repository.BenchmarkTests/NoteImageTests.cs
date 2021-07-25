@@ -8,7 +8,7 @@ namespace NoteList.Repository.BenchmarkTests
     [HtmlExporter]
     [MemoryDiagnoser]
     [MinColumn, MaxColumn, MeanColumn, MedianColumn]
-    public class CreateNoteImageTests
+    public class NoteImageTests
     {
         public WebApp WebApp;
         public int DefaultListId;

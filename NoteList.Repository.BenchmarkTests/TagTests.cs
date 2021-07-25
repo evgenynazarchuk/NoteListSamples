@@ -8,31 +8,22 @@ namespace NoteList.Repository.BenchmarkTests
     [HtmlExporter]
     [MemoryDiagnoser]
     [MinColumn, MaxColumn, MeanColumn, MedianColumn]
-    public class CreateNoteItemTests
+    public class TagTests
     {
         public WebApp WebApp;
-        public int DefaultListId;
 
         [GlobalSetup]
-        public async Task GlobalSetup()
+        public void GlobalSetup()
         {
             WebApp = new WebApp();
-
-            var list = await WebApp.ListFacade.Post(new NoteListCommand
-            {
-                Name = "Test Name"
-            });
-
-            DefaultListId = list.Id;
         }
 
         [Benchmark]
-        public async Task CreateNoteItem()
+        public async Task CreateTag()
         {
-            await WebApp.ItemFacade.Post(new NoteItemCommand
+            await WebApp.TagFacade.Post(new TagCommand
             {
-                NoteText = "Any Note Text",
-                NoteListId = DefaultListId
+                Name = "Test Name"
             });
         }
     }
