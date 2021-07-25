@@ -4,6 +4,8 @@ using NoteList.Domain.Commands;
 using NoteList.Domain.Models;
 using NoteList.Domain.Queries;
 using NoteList.Repository.Interfaces;
+using System.Threading.Tasks;
+using System;
 
 namespace NoteList.Repository.Controllers
 {
@@ -13,5 +15,13 @@ namespace NoteList.Repository.Controllers
     {
         public NoteItemController(IRepositoryAsync<NoteItem> repository, IMapper mapper)
             : base(repository, mapper) { }
+
+        [HttpGet("{id}/Tags")]
+        [Consumes("application/json")]
+        [Produces("application/json")]
+        public async Task<IActionResult> GetTags(int id)
+        {
+            throw new ApplicationException("not implemented");
+        }
     }
 }
