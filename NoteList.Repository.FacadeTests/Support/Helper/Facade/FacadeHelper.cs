@@ -26,7 +26,7 @@ namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
             JsonSerializerOptions = jsonSerializerOptions;
         }
 
-        public async Task<List<EntityQuery>> Get()
+        public async Task<List<EntityQuery>> GetAsync()
         {
             HttpResponseMessage httpResponseMessage = await Client.GetAsync(FacadePath);
             string responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
@@ -35,7 +35,7 @@ namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
             return responseObject;
         }
 
-        public async Task<EntityQuery> Get(int id)
+        public async Task<EntityQuery> GetAsync(int id)
         {
             HttpResponseMessage httpResponseMessage = await Client.GetAsync(FacadePath + $"/{id}");
             string responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
@@ -44,7 +44,7 @@ namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
             return responseObject;
         }
 
-        public async Task<EntityQuery> Post(EntityCommand entityCommand)
+        public async Task<EntityQuery> PostAsync(EntityCommand entityCommand)
         {
             string requestContent = JsonSerializer.Serialize(entityCommand, JsonSerializerOptions);
             HttpResponseMessage httpResponseMessage = await Client.PostAsync(FacadePath, new StringContent(requestContent, Encoding.UTF8, "application/json"));
@@ -54,7 +54,7 @@ namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
             return responseObject;
         }
 
-        public async Task<EntityQuery> Put(EntityCommand entityCommand)
+        public async Task<EntityQuery> PutAsync(EntityCommand entityCommand)
         {
             string requestContent = JsonSerializer.Serialize(entityCommand, JsonSerializerOptions);
             HttpResponseMessage httpResponseMessage = await Client.PutAsync(FacadePath, new StringContent(requestContent, Encoding.UTF8, "application/json"));
@@ -64,7 +64,7 @@ namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
             return responseObject;
         }
 
-        public async Task<EntityQuery> Delete(int id)
+        public async Task<EntityQuery> DeleteAsync(int id)
         {
             HttpResponseMessage httpResponseMessage = await Client.DeleteAsync(FacadePath + $"/{id}");
             string responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();

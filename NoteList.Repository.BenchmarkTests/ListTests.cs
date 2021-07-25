@@ -21,7 +21,7 @@ namespace NoteList.Repository.BenchmarkTests
         [Benchmark]
         public async Task CreateList()
         {
-            await WebApp.ListFacade.Post(new NoteListCommand
+            await WebApp.ListFacade.PostAsync(new NoteListCommand
             {
                 Name = "Test Name"
             });

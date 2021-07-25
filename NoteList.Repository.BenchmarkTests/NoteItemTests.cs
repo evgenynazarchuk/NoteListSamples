@@ -18,7 +18,7 @@ namespace NoteList.Repository.BenchmarkTests
         {
             WebApp = new WebApp();
 
-            var list = await WebApp.ListFacade.Post(new NoteListCommand
+            var list = await WebApp.ListFacade.PostAsync(new NoteListCommand
             {
                 Name = "Test Name"
             });
@@ -29,7 +29,7 @@ namespace NoteList.Repository.BenchmarkTests
         [Benchmark]
         public async Task CreateNoteItem()
         {
-            await WebApp.ItemFacade.Post(new NoteItemCommand
+            await WebApp.ItemFacade.PostAsync(new NoteItemCommand
             {
                 NoteText = "Any Note Text",
                 NoteListId = DefaultListId

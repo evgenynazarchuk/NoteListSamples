@@ -21,7 +21,7 @@ namespace NoteList.Repository.BenchmarkTests
         [Benchmark]
         public async Task CreateTag()
         {
-            await WebApp.TagFacade.Post(new TagCommand
+            await WebApp.TagFacade.PostAsync(new TagCommand
             {
                 Name = "Test Name"
             });
