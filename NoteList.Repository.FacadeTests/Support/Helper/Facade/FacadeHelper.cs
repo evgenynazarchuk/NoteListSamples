@@ -28,47 +28,47 @@ namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
 
         public async Task<List<EntityQuery>> GetAsync()
         {
-            HttpResponseMessage httpResponseMessage = await Client.GetAsync(FacadePath);
-            string responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
-            List<EntityQuery> responseObject = JsonSerializer.Deserialize<List<EntityQuery>>(responseContentString, JsonSerializerOptions);
+            var httpResponseMessage = await Client.GetAsync(FacadePath);
+            var responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
+            var responseObject = JsonSerializer.Deserialize<List<EntityQuery>>(responseContentString, JsonSerializerOptions);
 
             return responseObject;
         }
 
         public async Task<EntityQuery> GetAsync(int id)
         {
-            HttpResponseMessage httpResponseMessage = await Client.GetAsync(FacadePath + $"/{id}");
-            string responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
-            EntityQuery responseObject = JsonSerializer.Deserialize<EntityQuery>(responseContentString, JsonSerializerOptions);
+            var httpResponseMessage = await Client.GetAsync(FacadePath + $"/{id}");
+            var responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
+            var responseObject = JsonSerializer.Deserialize<EntityQuery>(responseContentString, JsonSerializerOptions);
 
             return responseObject;
         }
 
         public async Task<EntityQuery> PostAsync(EntityCommand entityCommand)
         {
-            string requestContent = JsonSerializer.Serialize(entityCommand, JsonSerializerOptions);
-            HttpResponseMessage httpResponseMessage = await Client.PostAsync(FacadePath, new StringContent(requestContent, Encoding.UTF8, "application/json"));
-            string responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
-            EntityQuery responseObject = JsonSerializer.Deserialize<EntityQuery>(responseContentString, JsonSerializerOptions);
+            var requestContent = JsonSerializer.Serialize(entityCommand, JsonSerializerOptions);
+            var httpResponseMessage = await Client.PostAsync(FacadePath, new StringContent(requestContent, Encoding.UTF8, "application/json"));
+            var responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
+            var responseObject = JsonSerializer.Deserialize<EntityQuery>(responseContentString, JsonSerializerOptions);
 
             return responseObject;
         }
 
         public async Task<EntityQuery> PutAsync(EntityCommand entityCommand)
         {
-            string requestContent = JsonSerializer.Serialize(entityCommand, JsonSerializerOptions);
-            HttpResponseMessage httpResponseMessage = await Client.PutAsync(FacadePath, new StringContent(requestContent, Encoding.UTF8, "application/json"));
-            string responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
-            EntityQuery responseObject = JsonSerializer.Deserialize<EntityQuery>(responseContentString, JsonSerializerOptions);
+            var requestContent = JsonSerializer.Serialize(entityCommand, JsonSerializerOptions);
+            var httpResponseMessage = await Client.PutAsync(FacadePath, new StringContent(requestContent, Encoding.UTF8, "application/json"));
+            var responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
+            var responseObject = JsonSerializer.Deserialize<EntityQuery>(responseContentString, JsonSerializerOptions);
 
             return responseObject;
         }
 
         public async Task<EntityQuery> DeleteAsync(int id)
         {
-            HttpResponseMessage httpResponseMessage = await Client.DeleteAsync(FacadePath + $"/{id}");
-            string responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
-            EntityQuery responseObject = JsonSerializer.Deserialize<EntityQuery>(responseContentString, JsonSerializerOptions);
+            var httpResponseMessage = await Client.DeleteAsync(FacadePath + $"/{id}");
+            var responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
+            var responseObject = JsonSerializer.Deserialize<EntityQuery>(responseContentString, JsonSerializerOptions);
 
             return responseObject;
         }

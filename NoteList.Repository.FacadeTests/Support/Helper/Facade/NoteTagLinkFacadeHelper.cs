@@ -26,20 +26,20 @@ namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
 
         public async Task<NoteTagLinkQuery> CreateLink(NoteTagLinkCommand noteTagLinkCommand)
         {
-            string requestContent = JsonSerializer.Serialize(noteTagLinkCommand, JsonSerializerOptions);
-            HttpResponseMessage httpResponseMessage = await HttpClient.PostAsync(FacadePath + "/CreateLink", new StringContent(requestContent, Encoding.UTF8, "application/json"));
-            string responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
-            NoteTagLinkQuery responseObject = JsonSerializer.Deserialize<NoteTagLinkQuery>(responseContentString, JsonSerializerOptions);
+            var requestContent = JsonSerializer.Serialize(noteTagLinkCommand, JsonSerializerOptions);
+            var httpResponseMessage = await HttpClient.PostAsync(FacadePath + "/CreateLink", new StringContent(requestContent, Encoding.UTF8, "application/json"));
+            var responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
+            var responseObject = JsonSerializer.Deserialize<NoteTagLinkQuery>(responseContentString, JsonSerializerOptions);
 
             return responseObject;
         }
 
         public async Task<NoteTagLinkQuery> RemoveLink(NoteTagLinkCommand noteTagLinkCommand)
         {
-            string requestContent = JsonSerializer.Serialize(noteTagLinkCommand, JsonSerializerOptions);
-            HttpResponseMessage httpResponseMessage = await HttpClient.PostAsync(FacadePath + "/RemoveLink", new StringContent(requestContent, Encoding.UTF8, "application/json"));
-            string responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
-            NoteTagLinkQuery responseObject = JsonSerializer.Deserialize<NoteTagLinkQuery>(responseContentString, JsonSerializerOptions);
+            var requestContent = JsonSerializer.Serialize(noteTagLinkCommand, JsonSerializerOptions);
+            var httpResponseMessage = await HttpClient.PostAsync(FacadePath + "/RemoveLink", new StringContent(requestContent, Encoding.UTF8, "application/json"));
+            var responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
+            var responseObject = JsonSerializer.Deserialize<NoteTagLinkQuery>(responseContentString, JsonSerializerOptions);
 
             return responseObject;
         }
