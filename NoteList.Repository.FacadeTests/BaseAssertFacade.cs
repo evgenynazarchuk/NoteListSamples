@@ -1,9 +1,8 @@
-using Xunit;
-using NoteList.Repository.FacadeTests.Support;
-using NoteList.Domain.Commands;
-using NoteList.Domain.Queries;
-using System.Threading.Tasks;
 using FluentAssertions;
+using NoteList.Domain.Commands;
+using NoteList.Repository.FacadeTests.Support;
+using System.Threading.Tasks;
+using Xunit;
 
 namespace NoteList.Repository.FacadeTests
 {

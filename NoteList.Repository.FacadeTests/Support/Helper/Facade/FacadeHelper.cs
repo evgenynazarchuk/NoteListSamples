@@ -1,14 +1,9 @@
-﻿using System;
-using System.Net;
-using System.Net.Http;
-using NoteList.Domain.Commands;
-using NoteList.Domain.Queries;
-using NoteList.Domain.Models;
+﻿using NoteList.Domain.Models;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using System.Text.Encodings;
-using System.Text;
 
 namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
 {
@@ -21,7 +16,7 @@ namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
         protected JsonSerializerOptions JsonSerializerOptions { get; set; }
 
         public FacadeHelper(
-            HttpClient httpClient, 
+            HttpClient httpClient,
             string facadePath,
             JsonSerializerOptions jsonSerializerOptions
             )
@@ -36,7 +31,7 @@ namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
             HttpResponseMessage httpResponseMessage = await Client.GetAsync(FacadePath);
             string responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
             List<EntityQuery> responseObject = JsonSerializer.Deserialize<List<EntityQuery>>(responseContentString, JsonSerializerOptions);
-            
+
             return responseObject;
         }
 
@@ -45,7 +40,7 @@ namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
             HttpResponseMessage httpResponseMessage = await Client.GetAsync(FacadePath + $"/{id}");
             string responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
             EntityQuery responseObject = JsonSerializer.Deserialize<EntityQuery>(responseContentString, JsonSerializerOptions);
-            
+
             return responseObject;
         }
 
@@ -55,10 +50,10 @@ namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
             HttpResponseMessage httpResponseMessage = await Client.PostAsync(FacadePath, new StringContent(requestContent, Encoding.UTF8, "application/json"));
             string responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
             EntityQuery responseObject = JsonSerializer.Deserialize<EntityQuery>(responseContentString, JsonSerializerOptions);
-            
+
             return responseObject;
         }
-        
+
         public async Task<EntityQuery> Put(EntityCommand entityCommand)
         {
             string requestContent = JsonSerializer.Serialize(entityCommand, JsonSerializerOptions);

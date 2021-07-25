@@ -1,12 +1,9 @@
-﻿using System;
-using System.Net;
-using System.Net.Http;
-using NoteList.Domain.Commands;
+﻿using NoteList.Domain.Commands;
 using NoteList.Domain.Queries;
-using NoteList.Domain.Models;
+using System.Net.Http;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using System.Text;
 
 namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
 {
@@ -20,7 +17,7 @@ namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
             HttpClient httpClient,
             string facadePath,
             JsonSerializerOptions jsonSerializerOptions
-            ) 
+            )
         {
             HttpClient = httpClient;
             FacadePath = facadePath;

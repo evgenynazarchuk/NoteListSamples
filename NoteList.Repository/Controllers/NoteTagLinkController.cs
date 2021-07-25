@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using NoteList.Domain.Models;
-using NoteList.Repository.Services;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using NoteList.Domain.Commands;
+using NoteList.Domain.Models;
 using NoteList.Domain.Queries;
-using AutoMapper;
+using NoteList.Repository.Services;
+using System.Threading.Tasks;
 
 namespace NoteList.Repository.Controllers
 {

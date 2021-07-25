@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BenchmarkDotNet;
-using BenchmarkDotNet.Attributes;
-using NoteList.Repository.FacadeTests.Support;
+﻿using BenchmarkDotNet.Attributes;
 using NoteList.Domain.Commands;
+using NoteList.Repository.FacadeTests.Support;
+using System.Threading.Tasks;
 
 namespace NoteList.Repository.BenchmarkTests
 {
     [HtmlExporter]
+    [MemoryDiagnoser]
     [MinColumn, MaxColumn, MeanColumn, MedianColumn]
-    public class NoteListRepositoryTests
+    public class CreateNoteImageTests
     {
         public WebApp WebApp;
         public int DefaultListId;
@@ -28,40 +24,10 @@ namespace NoteList.Repository.BenchmarkTests
                 Name = "Test Name"
             });
 
-            DefaultListId = list.Id;
-
             await WebApp.ItemFacade.Post(new NoteItemCommand
             {
-                NoteText = "Any Note Text",
-                NoteListId = DefaultListId
-            });
-        }
-
-        [Benchmark]
-        public async Task CreateList()
-        {
-            await WebApp.ListFacade.Post(new NoteListCommand
-            {
-                Name = "Test Name"
-            });
-        }
-
-        [Benchmark]
-        public async Task CreateTag()
-        {
-            await WebApp.TagFacade.Post(new TagCommand
-            {
-                Name = "Test Name"
-            });
-        }
-
-        [Benchmark]
-        public async Task CreateNoteItem()
-        {
-            await WebApp.ItemFacade.Post(new NoteItemCommand
-            {
-                NoteText = "Any Note Text",
-                NoteListId = DefaultListId
+                NoteText = "Note Text",
+                NoteListId = list.Id
             });
         }
 
