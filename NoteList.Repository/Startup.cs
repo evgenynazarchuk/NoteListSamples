@@ -48,8 +48,11 @@ namespace NoteList.Repository
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NoteList.Repository v1"));
             }
 
-            app.UseHttpsRedirection();
-
+            if (env.IsProduction())
+            {
+                app.UseHttpsRedirection();
+            }
+            
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
