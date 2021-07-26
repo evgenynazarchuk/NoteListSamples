@@ -24,7 +24,7 @@ namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
             JsonSerializerOptions = jsonSerializerOptions;
         }
 
-        public async Task<NoteTagLinkQuery> CreateLink(NoteTagLinkCommand noteTagLinkCommand)
+        public async Task<NoteTagLinkQuery> CreateLinkAsync(NoteTagLinkCommand noteTagLinkCommand)
         {
             var requestContent = JsonSerializer.Serialize(noteTagLinkCommand, JsonSerializerOptions);
             var httpResponseMessage = await HttpClient.PostAsync(FacadePath + "/CreateLink", new StringContent(requestContent, Encoding.UTF8, "application/json"));
@@ -34,7 +34,7 @@ namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
             return responseObject;
         }
 
-        public async Task<NoteTagLinkQuery> RemoveLink(NoteTagLinkCommand noteTagLinkCommand)
+        public async Task<NoteTagLinkQuery> RemoveLinkAsync(NoteTagLinkCommand noteTagLinkCommand)
         {
             var requestContent = JsonSerializer.Serialize(noteTagLinkCommand, JsonSerializerOptions);
             var httpResponseMessage = await HttpClient.PostAsync(FacadePath + "/RemoveLink", new StringContent(requestContent, Encoding.UTF8, "application/json"));

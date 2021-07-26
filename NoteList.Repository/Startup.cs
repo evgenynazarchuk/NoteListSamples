@@ -26,10 +26,10 @@ namespace NoteList.Repository
             services.AddDbContext<AppDataContext>(provider => provider.UseInMemoryDatabase("inmemory"));
             services.AddAutoMapper(config => config.AddProfile<ModelProfile>());
 
-            services.AddTransient<IRepositoryAsync<NoteItem>, RepositoryAsync<NoteItem>>();
+            services.AddTransient<NoteItemRepositoryAsync>();
             services.AddTransient<IRepositoryAsync<NoteImage>, RepositoryAsync<NoteImage>>();
             services.AddTransient<IRepositoryAsync<Domain.Models.NoteList>, RepositoryAsync<Domain.Models.NoteList>>();
-            services.AddTransient<IRepositoryAsync<Tag>, RepositoryAsync<Tag>>();
+            services.AddTransient<TagRepositoryAsync>();
             services.AddTransient<NoteTagLinkRepository>();
 
             services.AddControllers();
