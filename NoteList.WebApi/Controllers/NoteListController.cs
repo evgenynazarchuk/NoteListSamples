@@ -3,9 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using NoteList.Domain.Commands;
 using NoteList.Domain.Queries;
 using NoteList.Services;
-using System;
-using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace NoteList.WebApi.Controllers
 {

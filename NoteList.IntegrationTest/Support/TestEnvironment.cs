@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NoteList.IntegrationTest.Support.Facade;
 using System.Net.Http;
-using NoteList.IntegrationTest.Support.Facade;
 
 namespace NoteList.IntegrationTest.Support
 {

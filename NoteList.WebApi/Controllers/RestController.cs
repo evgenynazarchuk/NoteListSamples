@@ -4,7 +4,6 @@ using NoteList.Domain.Models;
 using NoteList.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System;
 
 namespace NoteList.WebApi.Controllers
 {

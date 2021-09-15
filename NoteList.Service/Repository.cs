@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using NoteList.Domain.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NoteList.Services;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace NoteList.Services
 {

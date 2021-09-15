@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Net.Http;
 using System.Net;
+using System.Net.Http;
 
 namespace NoteList.IntegrationTest.Support.Facade
 {
