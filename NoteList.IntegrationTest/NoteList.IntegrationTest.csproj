@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NoteList.Domain\NoteList.Domain.csproj" />
-    <ProjectReference Include="..\NoteList.WebApi\NoteList.WebApi.csproj" />
+    <ProjectReference Include="..\NoteList.WebApi\NoteList.Controller.csproj" />
   </ItemGroup>
 
 </Project>
