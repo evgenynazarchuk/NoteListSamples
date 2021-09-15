@@ -1,6 +1,6 @@
 ﻿using NoteList.Domain.Models;
 
-namespace NoteList.Domain.Queries
+namespace NoteList.Dto.Queries
 {
     public class TagQuery : Identity
     {

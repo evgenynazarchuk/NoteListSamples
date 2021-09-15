@@ -1,5 +1,5 @@
-﻿using NoteList.Domain.Commands;
-using NoteList.Domain.Queries;
+﻿using NoteList.Dto.Commands;
+using NoteList.Dto.Queries;
 using System.Collections.Generic;
 using System.Net.Http;
 

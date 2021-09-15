@@ -3,9 +3,9 @@ using NoteList.Domain.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NoteList.Services
+namespace NoteList.Services.Impl
 {
-    public class TagRepository : Repository<Tag>
+    public class TagRepository : Repository<Tag>, ITagRepository
     {
         public TagRepository(
             DataWriteContext dbWrite,

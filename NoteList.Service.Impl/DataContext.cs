@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NoteList.Domain.Models;
 
-namespace NoteList.Services
+namespace NoteList.Services.Impl
 {
     public class DataContext : DbContext
     {

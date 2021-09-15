@@ -1,6 +1,6 @@
-﻿namespace NoteList.Domain.Commands
+﻿namespace NoteList.Dto.Queries
 {
-    public class NoteTagLinkCommand
+    public class NoteTagLinkQuery
     {
         public int NoteItemId { get; set; }
 

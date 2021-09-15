@@ -1,8 +1,8 @@
 ﻿using NoteList.Domain.Models;
 
-namespace NoteList.Domain.Queries
+namespace NoteList.Dto.Commands
 {
-    public class NoteListQuery : Identity
+    public class NoteListCommand : Identity
     {
         public string Name { get; set; }
     }

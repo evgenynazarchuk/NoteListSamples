@@ -1,8 +1,8 @@
 ﻿using NoteList.Domain.Models;
 
-namespace NoteList.Services
+namespace NoteList.Services.Impl
 {
-    public class NoteImageRepository : Repository<NoteImage>
+    public class NoteImageRepository : Repository<NoteImage>, INoteImageRepository
     {
         public NoteImageRepository(
             DataWriteContext dbWrite,

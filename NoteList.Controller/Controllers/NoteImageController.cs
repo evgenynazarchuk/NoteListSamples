@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using NoteList.Domain.Commands;
+using NoteList.Dto.Commands;
 using NoteList.Domain.Models;
-using NoteList.Domain.Queries;
+using NoteList.Dto.Queries;
 using NoteList.Services;
 
 namespace NoteList.WebApi.Controllers
@@ -11,7 +11,7 @@ namespace NoteList.WebApi.Controllers
     [Route("[controller]")]
     public class NoteImageController : RestController<NoteImage, NoteImageCommand, NoteImageQuery>
     {
-        public NoteImageController(NoteImageRepository repository, IMapper mapper)
+        public NoteImageController(INoteImageRepository repository, IMapper mapper)
             : base(repository, mapper) { }
     }
 }

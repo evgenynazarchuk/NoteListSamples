@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using NoteList.Domain.Commands;
+using NoteList.Dto.Commands;
 using NoteList.Domain.Models;
-using NoteList.Domain.Queries;
+using NoteList.Dto.Queries;
 using NoteList.Services;
 using System.Threading.Tasks;
 
@@ -12,11 +12,11 @@ namespace NoteList.WebApi.Controllers
     [Route("[controller]/[action]")]
     public class NoteTagLinkController : ControllerBase
     {
-        protected readonly NoteTagLinkRepository Repository;
+        protected readonly INoteTagLinkRepository Repository;
 
         protected readonly IMapper Mapper;
 
-        public NoteTagLinkController(NoteTagLinkRepository repository, IMapper mapper)
+        public NoteTagLinkController(INoteTagLinkRepository repository, IMapper mapper)
         {
             Repository = repository;
             Mapper = mapper;

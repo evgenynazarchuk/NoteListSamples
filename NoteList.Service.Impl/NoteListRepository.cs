@@ -3,9 +3,9 @@ using NoteList.Domain.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NoteList.Services
+namespace NoteList.Services.Impl
 {
-    public class NoteListRepository : Repository<Domain.Models.NoteList>
+    public class NoteListRepository : Repository<Domain.Models.NoteList>, INoteListRepository
     {
         public NoteListRepository(
             DataWriteContext dbWrite,

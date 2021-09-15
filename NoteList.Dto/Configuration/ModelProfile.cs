@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using NoteList.Domain.Commands;
+using NoteList.Dto.Commands;
 using NoteList.Domain.Models;
-using NoteList.Domain.Queries;
+using NoteList.Dto.Queries;
 
-namespace NoteList.Domain.Configuration
+namespace NoteList.Dto.Configuration
 {
     public class ModelProfile : Profile
     {

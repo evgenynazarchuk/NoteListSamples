@@ -4,12 +4,11 @@ using NoteList.Domain.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NoteList.Services
+namespace NoteList.Services.Impl
 {
     public class Repository<Entity> : IRepository<Entity>
         where Entity : Identity, new()
     {
-        protected readonly IServiceCollection services;
 
         protected readonly DataWriteContext dbWrite;
 

@@ -4,8 +4,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using NoteList.Domain.Configuration;
+using NoteList.Dto.Configuration;
 using NoteList.Services;
+using NoteList.Services.Impl;
 
 namespace NoteList.WebApi
 {
@@ -31,11 +32,11 @@ namespace NoteList.WebApi
 
             services.AddAutoMapper(config => config.AddProfile<ModelProfile>());
 
-            services.AddScoped<NoteImageRepository>();
-            services.AddScoped<NoteItemRepository>();
-            services.AddScoped<NoteListRepository>();
-            services.AddScoped<NoteTagLinkRepository>();
-            services.AddScoped<TagRepository>();
+            services.AddScoped<INoteImageRepository, NoteImageRepository>();
+            services.AddScoped<INoteItemRepository, NoteItemRepository>();
+            services.AddScoped<INoteListRepository, NoteListRepository>();
+            services.AddScoped<INoteTagLinkRepository, NoteTagLinkRepository>();
+            services.AddScoped<ITagRepository, TagRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

@@ -1,6 +1,6 @@
 ﻿using NoteList.Domain.Models;
 
-namespace NoteList.Domain.Commands
+namespace NoteList.Dto.Commands
 {
     public class NoteImageCommand : Identity
     {

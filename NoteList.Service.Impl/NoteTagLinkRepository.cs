@@ -2,9 +2,9 @@
 using NoteList.Domain.Models;
 using System.Threading.Tasks;
 
-namespace NoteList.Services
+namespace NoteList.Services.Impl
 {
-    public class NoteTagLinkRepository
+    public class NoteTagLinkRepository : INoteTagLinkRepository
     {
         protected readonly DataWriteContext dbWrite;
 

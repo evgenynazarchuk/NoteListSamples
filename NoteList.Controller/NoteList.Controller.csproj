@@ -17,6 +17,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NoteList.Domain\NoteList.Domain.csproj" />
+    <ProjectReference Include="..\NoteList.Dto\NoteList.Dto.csproj" />
+    <ProjectReference Include="..\NoteList.Service.Impl\NoteList.Service.Impl.csproj" />
     <ProjectReference Include="..\NoteList.Service\NoteList.Service.csproj" />
   </ItemGroup>
 
