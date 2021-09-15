@@ -5,7 +5,6 @@ using NoteList.Domain.Models;
 using NoteList.Domain.Queries;
 using System.Threading.Tasks;
 using System;
-using NoteList.Services.Impl;
 using NoteList.Services;
 using System.Collections.Generic;
 

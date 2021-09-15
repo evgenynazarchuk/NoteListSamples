@@ -6,7 +6,6 @@ using NoteList.Domain.Queries;
 using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
-using NoteList.Services.Impl;
 using NoteList.Services;
 
 namespace NoteList.WebApi.Controllers

@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using NoteList.Domain.Commands;
 using NoteList.Domain.Models;
 using NoteList.Domain.Queries;
-using NoteList.Services.Impl;
 using NoteList.Services;
 using System.Threading.Tasks;
 

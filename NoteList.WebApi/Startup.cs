@@ -7,7 +7,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using NoteList.Domain.Configuration;
 using NoteList.Domain.Models;
-using NoteList.Services.Impl;
 using NoteList.Services;
 
 namespace NoteList.WebApi
@@ -23,16 +22,22 @@ namespace NoteList.WebApi
 
         public void ConfigureServices(IServiceCollection services)
         {
+            using (var db = new DataContext())
+            {
+                db.Database.EnsureCreated();
+            }
+
+            services.AddTransient<DataContext>();
             services.AddScoped<DataWriteContext>();
             services.AddScoped<DataReadContext>();
 
             services.AddAutoMapper(config => config.AddProfile<ModelProfile>());
 
-            services.AddTransient<NoteItemRepository>();
-            services.AddTransient<IRepository<NoteImage>, Repository<NoteImage>>();
-            services.AddTransient<IRepository<Domain.Models.NoteList>, Repository<Domain.Models.NoteList>>();
-            services.AddTransient<TagRepository>();
-            services.AddTransient<NoteTagLinkRepository>();
+            services.AddScoped<NoteImageRepository>();
+            services.AddScoped<NoteItemRepository>();
+            services.AddScoped<NoteListRepository>();
+            services.AddScoped<NoteTagLinkRepository>();
+            services.AddScoped<TagRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

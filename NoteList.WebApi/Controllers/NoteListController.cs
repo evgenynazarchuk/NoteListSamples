@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using NoteList.Domain.Commands;
 using NoteList.Domain.Queries;
-using NoteList.Services.Impl;
 using NoteList.Services;
 using System;
 using System.Threading.Tasks;
@@ -24,7 +23,7 @@ namespace NoteList.WebApi.Controllers
         public async Task<IActionResult> GetNotes(int id)
         {
             var notes = await (Repository as NoteListRepository).GetNotes(id);
-            var notesQuery = Mapper.Map<List< Domain.Models.NoteItem>, List<NoteItemQuery>>(notes);
+            var notesQuery = Mapper.Map<List<Domain.Models.NoteItem>, List<NoteItemQuery>>(notes);
             return Ok(notesQuery);
         }
     }

@@ -7,11 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteList.Domain", "NoteList
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteList.WebApi", "NoteList.WebApi\NoteList.WebApi.csproj", "{1F0444FA-0071-4964-949F-FA5CDBE524D7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteListSamples.IntegrationTest", "NoteListSamples.IntegrationTest\NoteListSamples.IntegrationTest.csproj", "{193E4B1F-5513-46E1-9281-ECE964435019}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteList.IntegrationTest", "NoteList.IntegrationTest\NoteList.IntegrationTest.csproj", "{193E4B1F-5513-46E1-9281-ECE964435019}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteList.Service", "NoteList.Service\NoteList.Service.csproj", "{B342DABA-07FC-461A-9820-101B8E98E9A0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteList.Service.Impl", "NoteList.Service.Impl\NoteList.Service.Impl.csproj", "{AF65A769-CF67-401D-BB95-9B25C8249A42}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteList.Service", "NoteList.Service\NoteList.Service.csproj", "{AF65A769-CF67-401D-BB95-9B25C8249A42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +29,6 @@ Global
 		{193E4B1F-5513-46E1-9281-ECE964435019}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{193E4B1F-5513-46E1-9281-ECE964435019}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{193E4B1F-5513-46E1-9281-ECE964435019}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B342DABA-07FC-461A-9820-101B8E98E9A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B342DABA-07FC-461A-9820-101B8E98E9A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B342DABA-07FC-461A-9820-101B8E98E9A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B342DABA-07FC-461A-9820-101B8E98E9A0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AF65A769-CF67-401D-BB95-9B25C8249A42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AF65A769-CF67-401D-BB95-9B25C8249A42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF65A769-CF67-401D-BB95-9B25C8249A42}.Release|Any CPU.ActiveCfg = Release|Any CPU

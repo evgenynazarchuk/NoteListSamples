@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using NoteList.Domain.Commands;
 using NoteList.Domain.Models;
 using NoteList.Domain.Queries;
-using NoteList.Services.Impl;
 using NoteList.Services;
 
 namespace NoteList.WebApi.Controllers
@@ -12,7 +11,7 @@ namespace NoteList.WebApi.Controllers
     [Route("[controller]")]
     public class NoteImageController : RestController<NoteImage, NoteImageCommand, NoteImageQuery>
     {
-        public NoteImageController(IRepository<NoteImage> repository, IMapper mapper)
+        public NoteImageController(NoteImageRepository repository, IMapper mapper)
             : base(repository, mapper) { }
     }
 }
