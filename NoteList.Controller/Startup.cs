@@ -27,8 +27,8 @@ namespace NoteList.WebApi
             }
 
             services.AddTransient<DataContext>();
-            services.AddScoped<DataWriteContext>();
-            services.AddScoped<DataReadContext>();
+            services.AddTransient<DataWriteContext>();
+            services.AddTransient<DataReadContext>();
 
             services.AddAutoMapper(config => config.AddProfile<ModelProfile>());
 
@@ -41,7 +41,7 @@ namespace NoteList.WebApi
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "NoteList.WebApi", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "NoteList.Controller", Version = "v1" });
             });
         }
 
@@ -51,7 +51,7 @@ namespace NoteList.WebApi
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NoteList.WebApi v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NoteList.Controller v1"));
             }
 
             if (env.IsProduction())

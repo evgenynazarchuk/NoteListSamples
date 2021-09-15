@@ -13,6 +13,7 @@ namespace NoteList.WebApi.Controllers
         where EntityQuery : Identity, new()
     {
         protected readonly IRepository<Entity> Repository;
+
         protected readonly IMapper Mapper;
 
         public RestController(IRepository<Entity> repository, IMapper mapper)

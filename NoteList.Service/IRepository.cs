@@ -8,9 +8,13 @@ namespace NoteList.Services
         where Entity : Identity, new()
     {
         Task<List<Entity>> GetAsync();
+
         Task<Entity> GetAsync(int id);
+
         Task<Entity> PutAsync(Entity entity);
+
         Task<Entity> DeleteAsync(int id);
+
         Task<Entity> CreateAsync(Entity entity);
     }
 }
