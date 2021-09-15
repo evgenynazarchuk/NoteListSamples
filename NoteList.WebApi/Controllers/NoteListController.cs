@@ -2,17 +2,19 @@
 using Microsoft.AspNetCore.Mvc;
 using NoteList.Domain.Commands;
 using NoteList.Domain.Queries;
-using NoteList.Repository.Interfaces;
+using NoteList.Services.Impl;
+using NoteList.Services;
 using System;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
-namespace NoteList.Repository.Controllers
+namespace NoteList.WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class NoteListController : RestController<Domain.Models.NoteList, NoteListCommand, NoteListQuery>
     {
-        public NoteListController(IRepositoryAsync<Domain.Models.NoteList> repository, IMapper mapper)
+        public NoteListController(NoteListRepository repository, IMapper mapper)
             : base(repository, mapper) { }
 
 
@@ -21,7 +23,9 @@ namespace NoteList.Repository.Controllers
         [Produces("application/json")]
         public async Task<IActionResult> GetNotes(int id)
         {
-            throw new ApplicationException("not implemented");
+            var notes = await (Repository as NoteListRepository).GetNotes(id);
+            var notesQuery = Mapper.Map<List< Domain.Models.NoteItem>, List<NoteItemQuery>>(notes);
+            return Ok(notesQuery);
         }
     }
 }

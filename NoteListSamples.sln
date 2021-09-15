@@ -1,21 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31129.286
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31710.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteList.Domain", "NoteList.Domain\NoteList.Domain.csproj", "{0302D4F0-8AC8-448F-ACB1-7305C8077B0C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteList.Repository", "NoteList.Repository\NoteList.Repository.csproj", "{1F0444FA-0071-4964-949F-FA5CDBE524D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteList.WebApi", "NoteList.WebApi\NoteList.WebApi.csproj", "{1F0444FA-0071-4964-949F-FA5CDBE524D7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1F125B41-C890-49F3-8340-34DAB4AAD439}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteListSamples.IntegrationTest", "NoteListSamples.IntegrationTest\NoteListSamples.IntegrationTest.csproj", "{193E4B1F-5513-46E1-9281-ECE964435019}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FacadeTests", "FacadeTests", "{F9AD1FFE-EB97-47CB-BA0D-8307EB0E13C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteList.Service", "NoteList.Service\NoteList.Service.csproj", "{B342DABA-07FC-461A-9820-101B8E98E9A0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteList.Repository.FacadeTests", "NoteList.Repository.FacadeTests\NoteList.Repository.FacadeTests.csproj", "{F0AC61EA-02EB-4277-82C3-BF62DBB4773A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BenchmarkTests", "BenchmarkTests", "{124F9F3A-EED0-4261-9AF4-5ACE1E5E9F94}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteList.Repository.BenchmarkTests", "NoteList.Repository.BenchmarkTests\NoteList.Repository.BenchmarkTests.csproj", "{E76C82A9-003C-46B6-8B86-7191279DB80C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteList.Service.Impl", "NoteList.Service.Impl\NoteList.Service.Impl.csproj", "{AF65A769-CF67-401D-BB95-9B25C8249A42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,23 +27,21 @@ Global
 		{1F0444FA-0071-4964-949F-FA5CDBE524D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F0444FA-0071-4964-949F-FA5CDBE524D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F0444FA-0071-4964-949F-FA5CDBE524D7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F0AC61EA-02EB-4277-82C3-BF62DBB4773A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F0AC61EA-02EB-4277-82C3-BF62DBB4773A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F0AC61EA-02EB-4277-82C3-BF62DBB4773A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F0AC61EA-02EB-4277-82C3-BF62DBB4773A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E76C82A9-003C-46B6-8B86-7191279DB80C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E76C82A9-003C-46B6-8B86-7191279DB80C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E76C82A9-003C-46B6-8B86-7191279DB80C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E76C82A9-003C-46B6-8B86-7191279DB80C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{193E4B1F-5513-46E1-9281-ECE964435019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{193E4B1F-5513-46E1-9281-ECE964435019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{193E4B1F-5513-46E1-9281-ECE964435019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{193E4B1F-5513-46E1-9281-ECE964435019}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B342DABA-07FC-461A-9820-101B8E98E9A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B342DABA-07FC-461A-9820-101B8E98E9A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B342DABA-07FC-461A-9820-101B8E98E9A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B342DABA-07FC-461A-9820-101B8E98E9A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF65A769-CF67-401D-BB95-9B25C8249A42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF65A769-CF67-401D-BB95-9B25C8249A42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF65A769-CF67-401D-BB95-9B25C8249A42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF65A769-CF67-401D-BB95-9B25C8249A42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{F9AD1FFE-EB97-47CB-BA0D-8307EB0E13C1} = {1F125B41-C890-49F3-8340-34DAB4AAD439}
-		{F0AC61EA-02EB-4277-82C3-BF62DBB4773A} = {F9AD1FFE-EB97-47CB-BA0D-8307EB0E13C1}
-		{124F9F3A-EED0-4261-9AF4-5ACE1E5E9F94} = {1F125B41-C890-49F3-8340-34DAB4AAD439}
-		{E76C82A9-003C-46B6-8B86-7191279DB80C} = {124F9F3A-EED0-4261-9AF4-5ACE1E5E9F94}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CA9AEC93-24BA-4497-84D9-F6D54A33A3D0}

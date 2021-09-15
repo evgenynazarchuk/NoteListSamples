@@ -1,6 +1,6 @@
 ﻿using BenchmarkDotNet.Running;
 
-namespace NoteList.Repository.BenchmarkTests
+namespace NoteList.WebApi.BenchmarkTests
 {
     class Program
     {

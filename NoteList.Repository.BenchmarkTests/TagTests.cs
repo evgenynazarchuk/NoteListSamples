@@ -1,9 +1,9 @@
 ﻿using BenchmarkDotNet.Attributes;
 using NoteList.Domain.Commands;
-using NoteList.Repository.FacadeTests.Support;
+using NoteList.WebApi.FacadeTests.Support;
 using System.Threading.Tasks;
 
-namespace NoteList.Repository.BenchmarkTests
+namespace NoteList.WebApi.BenchmarkTests
 {
     [HtmlExporter]
     [MemoryDiagnoser]

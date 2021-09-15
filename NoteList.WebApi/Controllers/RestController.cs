@@ -1,22 +1,23 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using NoteList.Domain.Models;
-using NoteList.Repository.Interfaces;
+using NoteList.Services.Impl;
+using NoteList.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System;
 
-namespace NoteList.Repository.Controllers
+namespace NoteList.WebApi.Controllers
 {
     public class RestController<Entity, EntityCommand, EntityQuery> : ControllerBase
         where Entity : Identity, new()
         where EntityCommand : Identity, new()
         where EntityQuery : Identity, new()
     {
-        protected readonly IRepositoryAsync<Entity> Repository;
+        protected readonly IRepository<Entity> Repository;
         protected readonly IMapper Mapper;
 
-        public RestController(IRepositoryAsync<Entity> repository, IMapper mapper)
+        public RestController(IRepository<Entity> repository, IMapper mapper)
         {
             Repository = repository;
             Mapper = mapper;

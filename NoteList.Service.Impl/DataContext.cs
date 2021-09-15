@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NoteList.Domain.Models;
 
-namespace NoteList.Repository
+namespace NoteList.Services.Impl
 {
-    public class AppDataContext : DbContext
+    public class DataContext : DbContext
     {
         public DbSet<NoteImage> NoteImages { get; set; }
 
@@ -15,11 +15,11 @@ namespace NoteList.Repository
 
         public DbSet<Tag> Tags { get; set; }
 
-        public AppDataContext(DbContextOptions<AppDataContext> options)
-            : base(options)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            Database.EnsureCreated();
+            optionsBuilder.UseSqlServer("");
         }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

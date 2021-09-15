@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Text.Json;
 
-namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
+namespace NoteList.WebApi.FacadeTests.Support.Helper.Facade
 {
     public partial class NoteImageFacadeHelper<EntityCommand, EntityQuery>
         : FacadeHelper<EntityCommand, EntityQuery>

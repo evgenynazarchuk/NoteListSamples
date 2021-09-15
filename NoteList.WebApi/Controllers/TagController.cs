@@ -3,29 +3,29 @@ using Microsoft.AspNetCore.Mvc;
 using NoteList.Domain.Commands;
 using NoteList.Domain.Models;
 using NoteList.Domain.Queries;
-using NoteList.Repository.Interfaces;
 using System.Threading.Tasks;
 using System;
-using NoteList.Repository.Services;
 using System.Collections.Generic;
+using NoteList.Services.Impl;
+using NoteList.Services;
 
-namespace NoteList.Repository.Controllers
+namespace NoteList.WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class TagController : RestController<Tag, TagCommand, TagQuery>
     {
-        public TagController(TagRepositoryAsync repository, IMapper mapper)
+        public TagController(TagRepository repository, IMapper mapper)
             : base(repository, mapper) { }
 
         [HttpGet("{id}/Notes")]
         [Consumes("application/json")]
         [Produces("application/json")]
-        public async Task<List<NoteItemQuery>> GetNotes(int id)
+        public async Task<IActionResult> GetNotes(int id)
         {
-            var notes = await (Repository as TagRepositoryAsync).GetNotes(id);
+            var notes = await (Repository as TagRepository).GetNotes(id);
             var notesQuery = Mapper.Map<List<NoteItem>, List<NoteItemQuery>>(notes);
-            return notesQuery;
+            return Ok(notesQuery);
         }
     }
 }

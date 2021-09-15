@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
+namespace NoteList.WebApi.FacadeTests.Support.Helper.Facade
 {
     public abstract class FacadeHelper<EntityCommand, EntityQuery>
         where EntityCommand : Identity

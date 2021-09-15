@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NoteList.Repository.Interfaces
+namespace NoteList.Services
 {
-    public interface IRepositoryAsync<Entity>
+    public interface IRepository<Entity>
         where Entity : Identity, new()
     {
         Task<List<Entity>> GetAsync();

@@ -7,10 +7,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using NoteList.Domain.Configuration;
 using NoteList.Domain.Models;
-using NoteList.Repository.Interfaces;
-using NoteList.Repository.Services;
+using NoteList.Services.Impl;
+using NoteList.Services;
 
-namespace NoteList.Repository
+namespace NoteList.WebApi
 {
     public class Startup
     {
@@ -23,19 +23,21 @@ namespace NoteList.Repository
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDataContext>(provider => provider.UseInMemoryDatabase("inmemory"));
+            services.AddScoped<DataWriteContext>();
+            services.AddScoped<DataReadContext>();
+
             services.AddAutoMapper(config => config.AddProfile<ModelProfile>());
 
-            services.AddTransient<NoteItemRepositoryAsync>();
-            services.AddTransient<IRepositoryAsync<NoteImage>, RepositoryAsync<NoteImage>>();
-            services.AddTransient<IRepositoryAsync<Domain.Models.NoteList>, RepositoryAsync<Domain.Models.NoteList>>();
-            services.AddTransient<TagRepositoryAsync>();
+            services.AddTransient<NoteItemRepository>();
+            services.AddTransient<IRepository<NoteImage>, Repository<NoteImage>>();
+            services.AddTransient<IRepository<Domain.Models.NoteList>, Repository<Domain.Models.NoteList>>();
+            services.AddTransient<TagRepository>();
             services.AddTransient<NoteTagLinkRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "NoteList.Repository", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "NoteList.WebApi", Version = "v1" });
             });
         }
 
@@ -45,7 +47,7 @@ namespace NoteList.Repository
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NoteList.Repository v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NoteList.WebApi v1"));
             }
 
             if (env.IsProduction())

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using NoteList.Domain.Queries;
 
-namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
+namespace NoteList.WebApi.FacadeTests.Support.Helper.Facade
 {
     public class TagFacadeHelper<EntityCommand, EntityQuery>
         : FacadeHelper<EntityCommand, EntityQuery>

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using NoteList.Domain.Queries;
 
-namespace NoteList.Repository.FacadeTests.Support.Helper.Facade
+namespace NoteList.WebApi.FacadeTests.Support.Helper.Facade
 {
     public partial class NoteItemFacadeHelper<EntityCommand, EntityQuery>
         : FacadeHelper<EntityCommand, EntityQuery>

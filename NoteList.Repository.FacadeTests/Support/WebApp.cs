@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using NoteList.Domain.Commands;
 using NoteList.Domain.Queries;
-using NoteList.Repository.FacadeTests.Support.Helper.Facade;
+using NoteList.WebApi.FacadeTests.Support.Helper.Facade;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 
-namespace NoteList.Repository.FacadeTests.Support
+namespace NoteList.WebApi.FacadeTests.Support
 {
     public class WebApp : WebApplicationFactory<Startup>
     {

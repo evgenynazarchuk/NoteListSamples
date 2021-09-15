@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NoteList.Repository\NoteList.Repository.csproj" />
+    <ProjectReference Include="..\NoteList.Repository\NoteList.WebApi.csproj" />
   </ItemGroup>
 
 </Project>

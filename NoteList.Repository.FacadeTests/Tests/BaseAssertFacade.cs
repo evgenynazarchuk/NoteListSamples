@@ -1,11 +1,11 @@
 using FluentAssertions;
 using NoteList.Domain.Commands;
-using NoteList.Repository.FacadeTests.Support;
+using NoteList.WebApi.FacadeTests.Support;
 using System.Threading.Tasks;
 using Xunit;
 using System.Linq;
 
-namespace NoteList.Repository.FacadeTests.Tests
+namespace NoteList.WebApi.FacadeTests.Tests
 {
     public class BaseAssertFacade : WebApp
     {

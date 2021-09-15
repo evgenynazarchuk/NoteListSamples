@@ -3,10 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using NoteList.Domain.Commands;
 using NoteList.Domain.Models;
 using NoteList.Domain.Queries;
-using NoteList.Repository.Services;
+using NoteList.Services.Impl;
+using NoteList.Services;
 using System.Threading.Tasks;
 
-namespace NoteList.Repository.Controllers
+namespace NoteList.WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]/[action]")]
