@@ -1,9 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using NoteList.Domain.Models;
+﻿using NoteList.Domain.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NoteList.Services
+namespace NoteList.Service
 {
     public interface INoteItemRepository : IRepository<NoteItem>
     {

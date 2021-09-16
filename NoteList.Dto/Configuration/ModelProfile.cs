@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using NoteList.Dto.Commands;
 using NoteList.Domain.Models;
+using NoteList.Dto.Commands;
 using NoteList.Dto.Queries;
 
 namespace NoteList.Dto.Configuration

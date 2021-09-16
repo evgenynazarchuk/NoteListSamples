@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using NoteList.Dto.Commands;
 using NoteList.Dto.Queries;
-using NoteList.Services;
+using NoteList.Service;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

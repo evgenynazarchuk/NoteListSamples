@@ -1,6 +1,9 @@
-﻿namespace NoteList.Domain.Models
+﻿using NoteList.Domain.Interfaces;
+using System;
+
+namespace NoteList.Domain.Models
 {
-    public class NoteTagLink
+    public class NoteTagLink : ITimeTracker
     {
         public int NoteItemId { get; set; }
 
@@ -9,5 +12,9 @@
         public int TagId { get; set; }
 
         public Tag Tag { get; set; }
+
+        public DateTime CreatedDate { get; set; }
+
+        public DateTime ModifiedDate { get; set; }
     }
 }

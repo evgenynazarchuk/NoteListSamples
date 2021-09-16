@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using NoteList.Domain.Models;
-using NoteList.Services;
+using NoteList.Service;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

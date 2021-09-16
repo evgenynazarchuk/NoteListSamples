@@ -19,7 +19,6 @@
     <Folder Include="Support\Data\" />
     <Folder Include="Support\Asserts\" />
     <Folder Include="Support\Builder\" />
-    <Folder Include="Support\Services\" />
   </ItemGroup>
 
   <ItemGroup>

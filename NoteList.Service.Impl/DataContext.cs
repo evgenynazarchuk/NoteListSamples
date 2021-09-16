@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NoteList.Domain.Models;
 
-namespace NoteList.Services.Impl
+namespace NoteList.Service.Impl
 {
-    public class DataContext : DbContext
+    public class DataContext : DbContext, IDataContext
     {
         public DbSet<NoteImage> NoteImages { get; set; }
 
@@ -50,5 +50,18 @@ namespace NoteList.Services.Impl
                 l => l
                     .HasKey(ntl => new { ntl.NoteItemId, ntl.TagId }));
         }
+
+        public IRepository<TEntity> GetEntityRepository<TEntity>()
+            where TEntity : Identity, new()
+        {
+            return new Repository<TEntity>(this, this.dateTimeService);
+        }
+
+        public DataContext(IDateTimeService dateTimeService)
+        {
+            this.dateTimeService = dateTimeService;
+        }
+
+        protected IDateTimeService dateTimeService;
     }
 }

@@ -2,31 +2,41 @@
 using NoteList.Domain.Models;
 using System.Threading.Tasks;
 
-namespace NoteList.Services.Impl
+namespace NoteList.Service.Impl
 {
     public class NoteTagLinkRepository : INoteTagLinkRepository
     {
-        protected readonly DataWriteContext dbWrite;
+        protected readonly DataContext context;
 
-        protected readonly DbSet<NoteTagLink> Entity;
+        protected readonly DbSet<NoteTagLink> entity;
 
-        public NoteTagLinkRepository(DataWriteContext dataContext)
+        protected readonly IDateTimeService dateTimeService;
+
+        public NoteTagLinkRepository(DataContext context, IDateTimeService dateTimeService)
         {
-            this.dbWrite = dataContext;
-            this.Entity = this.dbWrite.Set<NoteTagLink>();
+            this.context = context;
+            this.entity = this.context.Set<NoteTagLink>();
+            this.dateTimeService = dateTimeService;
         }
 
         public async Task<NoteTagLink> CreateLinkAsync(NoteTagLink link)
         {
-            await Entity.AddAsync(link);
-            await this.dbWrite.SaveChangesAsync();
+            link.CreatedDate = this.dateTimeService.GetUtcNow();
+            link.ModifiedDate = this.dateTimeService.GetUtcNow();
+
+            await entity.AddAsync(link);
+            await this.context.SaveChangesAsync();
+
             return link;
         }
 
         public async Task<NoteTagLink> RemoveLinkAsync(NoteTagLink link)
         {
-            this.Entity.Remove(link);
-            await this.dbWrite.SaveChangesAsync();
+            link.ModifiedDate = this.dateTimeService.GetUtcNow();
+
+            this.entity.Remove(link);
+            await this.context.SaveChangesAsync();
+
             return link;
         }
     }

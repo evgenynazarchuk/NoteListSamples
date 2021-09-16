@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using NoteList.Domain.Interfaces;
+using System;
+using System.Collections.Generic;
 
 namespace NoteList.Domain.Models
 {
-    public class NoteItem : Identity
+    public class NoteItem : Identity, ITimeTracker
     {
         public string NoteText { get; set; }
 
@@ -17,5 +19,9 @@ namespace NoteList.Domain.Models
         public int NoteListId { get; set; }
 
         public NoteList NoteList { get; set; }
+
+        public DateTime CreatedDate { get; set; }
+
+        public DateTime ModifiedDate { get; set; }
     }
 }

@@ -1,59 +1,77 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+using NoteList.Domain.Interfaces;
 using NoteList.Domain.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NoteList.Services.Impl
+namespace NoteList.Service.Impl
 {
     public class Repository<Entity> : IRepository<Entity>
         where Entity : Identity, new()
     {
+        protected readonly DataContext context;
 
-        protected readonly DataWriteContext dbWrite;
+        protected readonly IDateTimeService dateTimeService;
 
-        protected readonly DataReadContext dbRead;
-
-        public Repository(
-            DataWriteContext dbWrite,
-            DataReadContext dbRead
-            )
+        public Repository(DataContext context, IDateTimeService dateTimeService)
         {
-            this.dbWrite = dbWrite;
-            this.dbRead = dbRead;
+            this.context = context;
+            this.dateTimeService = dateTimeService;
         }
 
         public async Task<List<Entity>> GetAsync()
         {
-            var result = await dbRead.Set<Entity>().ToListAsync();
+            var result = await this.context.Set<Entity>().ToListAsync();
+
             return result;
         }
 
         public async Task<Entity> GetAsync(int id)
         {
-            var result = await dbRead.Set<Entity>().FindAsync(id);
+            var result = await this.context.Set<Entity>().FindAsync(id);
+
             return result;
         }
 
         public async Task<Entity> CreateAsync(Entity entity)
         {
-            await dbWrite.Set<Entity>().AddAsync(entity);
-            await dbWrite.SaveChangesAsync();
+            if (entity is ITimeTracker)
+            {
+                (entity as ITimeTracker).CreatedDate = this.dateTimeService.GetUtcNow();
+                (entity as ITimeTracker).ModifiedDate = this.dateTimeService.GetUtcNow();
+            }
+
+            await this.context.Set<Entity>().AddAsync(entity);
+            await this.context.SaveChangesAsync();
+
             return entity;
         }
 
         public async Task<Entity> DeleteAsync(int id)
         {
             var entity = await this.GetAsync(id);
-            dbWrite.Set<Entity>().Remove(entity);
-            await dbWrite.SaveChangesAsync();
+
+            if (entity is ITimeTracker)
+            {
+                (entity as ITimeTracker).ModifiedDate = this.dateTimeService.GetUtcNow();
+            }
+
+            this.context.Set<Entity>().Remove(entity);
+            await this.context.SaveChangesAsync();
+
             return entity;
         }
 
         public async Task<Entity> PutAsync(Entity entity)
         {
-            dbWrite.Set<Entity>().Update(entity);
-            await dbWrite.SaveChangesAsync();
+            if (entity is ITimeTracker)
+            {
+                (entity as ITimeTracker).ModifiedDate = this.dateTimeService.GetUtcNow();
+            }
+
+            this.context.Set<Entity>().Update(entity);
+            await this.context.SaveChangesAsync();
+
             return entity;
         }
     }

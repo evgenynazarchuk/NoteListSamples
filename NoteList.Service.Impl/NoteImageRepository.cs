@@ -1,14 +1,11 @@
 ﻿using NoteList.Domain.Models;
 
-namespace NoteList.Services.Impl
+namespace NoteList.Service.Impl
 {
     public class NoteImageRepository : Repository<NoteImage>, INoteImageRepository
     {
-        public NoteImageRepository(
-            DataWriteContext dbWrite,
-            DataReadContext dbRead
-            )
-            : base(dbWrite, dbRead)
+        public NoteImageRepository(DataContext context, IDateTimeService dateTimeService)
+            : base(context, dateTimeService)
         { }
     }
 }

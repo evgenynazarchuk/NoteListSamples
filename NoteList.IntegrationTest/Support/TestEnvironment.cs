@@ -1,4 +1,6 @@
-﻿using NoteList.IntegrationTest.Support.Facade;
+﻿using Microsoft.Extensions.DependencyInjection;
+using NoteList.IntegrationTest.Support.Facade;
+using NoteList.IntegrationTest.Support.Services;
 using System.Net.Http;
 
 namespace NoteList.IntegrationTest.Support
@@ -19,6 +21,8 @@ namespace NoteList.IntegrationTest.Support
 
         public readonly TagFacade Tag;
 
+        public readonly TimeHelperService TimeHelper;
+
         public TestEnvironment()
         {
             this.TestApplication = new();
@@ -29,6 +33,7 @@ namespace NoteList.IntegrationTest.Support
             this.NoteList = new(this.HttpClient);
             this.NoteTagLink = new(this.HttpClient);
             this.Tag = new(this.HttpClient);
+            this.TimeHelper = this.TestApplication.Services.GetRequiredService<TimeHelperService>();
         }
     }
 }

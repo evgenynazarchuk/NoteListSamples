@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NoteList.Services
+namespace NoteList.Service
 {
     public interface IRepository<Entity>
         where Entity : Identity, new()

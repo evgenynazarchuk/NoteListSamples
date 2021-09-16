@@ -5,8 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using NoteList.Dto.Configuration;
-using NoteList.Services;
-using NoteList.Services.Impl;
+using NoteList.Service;
+using NoteList.Service.Impl;
 
 namespace NoteList.WebApi
 {
@@ -21,14 +21,14 @@ namespace NoteList.WebApi
 
         public void ConfigureServices(IServiceCollection services)
         {
-            using (var db = new DataContext())
+            using (var db = new DataContext(new DateTimeService()))
             {
                 db.Database.EnsureCreated();
             }
 
-            services.AddTransient<DataContext>();
-            services.AddTransient<DataWriteContext>();
-            services.AddTransient<DataReadContext>();
+            services.AddSingleton<IDateTimeService, DateTimeService>();
+            //services.AddScoped<IDataContext, DataContext>();
+            services.AddScoped<DataContext>();
 
             services.AddAutoMapper(config => config.AddProfile<ModelProfile>());
 

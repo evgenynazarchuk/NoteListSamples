@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using NoteList.Dto.Commands;
 using NoteList.Domain.Models;
+using NoteList.Dto.Commands;
 using NoteList.Dto.Queries;
-using NoteList.Services;
+using NoteList.Service;
 
 namespace NoteList.WebApi.Controllers
 {
